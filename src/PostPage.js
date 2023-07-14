@@ -88,7 +88,9 @@ const PostPage = () => {
             <div style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(4, 1fr)", /* Creates 4 equal columns */
-                gridGap: "10px"
+                gridGap: "10px",
+                marginTop:"20px",
+                marginLeft:"20px"
             }}>
                 {posts
                     .filter((post) => post.deleted === false)

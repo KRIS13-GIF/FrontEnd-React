@@ -23,7 +23,13 @@ function Favorites() {
   return(
   <>
     <h1>Favorites Page</h1>
-   <div>{  
+    <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, 1fr)", /* Creates 4 equal columns */
+                gridGap: "10px",
+                marginTop:"20px",
+                marginLeft:"20px"
+            }}>{  
   fav.map((fav, idx) => <FavPost key={idx}  fav={fav}></FavPost>)}
   </div>
   </>

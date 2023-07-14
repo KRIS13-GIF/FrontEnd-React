@@ -32,19 +32,27 @@ function UserPage(){
 
 
 return(
-    
-    <div>
+    <>
+
         <NavbarK2/>
+        <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, 1fr)", /* Creates 4 equal columns */
+                gridGap: "10px",
+                marginTop:"20px",
+                marginLeft:"20px"
+            }}>
         {
             users.map((user, idx)=>(
                 <UserComponentAdmin key={idx} user={user}></UserComponentAdmin>
             ))
         }
-    </div>
+        </div>
+        
+  
+        </>
+
 )
-
-
-
 }
 
 

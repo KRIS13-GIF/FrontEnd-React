@@ -13,7 +13,14 @@ function Home() {
     return (
         <>
        <NavbarK/>
-            <div style={{ display: "grid", columngap: "50px" }}>
+       <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, 1fr)", /* Creates 4 equal columns */
+                gridGap: "10px",
+                marginTop:"20px",
+                marginLeft:"20px"
+                
+            }}>
                 {
                     users.filter((user) => user.deleted === false).map((user, idx) =>
                         <User key={idx} user={user} />)
