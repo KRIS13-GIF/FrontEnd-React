@@ -16,7 +16,7 @@ const PostPage = () => {
         getPosts();
     }, []);
 
-     const getPosts = () => {
+    const getPosts = () => {
         axios
             .get(`http://localhost:5002/api/program/post/${params?.id}`)
             .then((response) => {
@@ -43,7 +43,7 @@ const PostPage = () => {
                 formData
             );
 
-           
+
 
             setFormData({ title: "", description: "" });
             getPosts();
@@ -55,7 +55,7 @@ const PostPage = () => {
     return (
         <>
 
-            <div style={{display:"flex", justifyContent:"end", padding:"20px" }}>
+            <div style={{ display: "flex", justifyContent: "end", padding: "20px" }}>
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="title">Title:</label>
@@ -89,8 +89,8 @@ const PostPage = () => {
                 display: "grid",
                 gridTemplateColumns: "repeat(4, 1fr)", /* Creates 4 equal columns */
                 gridGap: "10px",
-                marginTop:"20px",
-                marginLeft:"20px"
+                marginTop: "20px",
+                marginLeft: "20px"
             }}>
                 {posts
                     .filter((post) => post.deleted === false)

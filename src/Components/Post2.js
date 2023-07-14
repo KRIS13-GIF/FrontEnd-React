@@ -4,7 +4,6 @@ import axios from 'axios';
 
 function Post2({ post,id }) {
 
-console.log(id,"params")
     function changeStatus(idToSend) {
         
         axios.put(`http://localhost:5002/api/program/changeStatus/${id}/${idToSend}`)

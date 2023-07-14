@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import NavbarK from "../Components/Navbar";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 function UpdatePost() {
   const params = useParams();
+  const navigate=useNavigate();
 
 
   const [formData, setFormData] = useState({
@@ -21,7 +22,9 @@ function UpdatePost() {
       .then((response) => {
         console.log(response);
         console.log("data: ", response.data);
-        alert("Post updated! ")
+        navigate(-1);
+        
+       
       })
       .catch((error) => {
         console.error('Error updating post:', error);
