@@ -1,11 +1,20 @@
 import Card from 'react-bootstrap/Card';
 import React from "react";
-
-
-
+import axios from "axios";
 
 
 function UserComponentAdmin({user}){
+
+    function deleteUser(){
+        axios.delete(`http://localhost:5002/api/program/delete/user/${user?.id}`)
+        .then((response) => {
+            console.log("data: ", response.data);
+            window.location.reload();
+        })
+        .catch((error) => {
+            console.error('Error fetching posts:', error);
+        });
+    };
 
 
     return(
@@ -27,7 +36,7 @@ function UserComponentAdmin({user}){
             </Card.Text>
             }
             
-           <Card.Link >Delete</Card.Link> 
+           <Card.Link onClick={()=>deleteUser()}>Delete</Card.Link> 
             <Card.Link>Update</Card.Link>
           </Card.Body>
         </Card>
