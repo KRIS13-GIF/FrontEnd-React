@@ -14,7 +14,7 @@ return(
         <Navbar.Brand href="#home">E-Commerce App</Navbar.Brand>
         <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/admin/8ecac890-69d7-4f7b-a739-3c64c58bafda">Admin</Nav.Link>
+            <Nav.Link href="/admin/0b5ef48b-2889-4daf-8aef-4c262eb2da68">Admin</Nav.Link>
         </Nav>
     </Container>
 </Navbar>

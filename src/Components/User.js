@@ -17,6 +17,7 @@ function User({user}){
             </Card.Text>
            <Card.Link onClick={()=>navigate(`fav/${user.id}`)}>Favorites</Card.Link> 
             <Card.Link onClick={() => navigate(`post/${user.id}`)}>Posts</Card.Link>
+            
           </Card.Body>
         </Card>
     

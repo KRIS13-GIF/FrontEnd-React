@@ -44,7 +44,12 @@ function Post({post}){
               {post.description}
             </Card.Text>
             <Card.Link style={{ cursor: "pointer"}} onClick={()=>deletePost()}>Delete</Card.Link>
+            { post.status!="APPROVED" &&
             <Card.Link style={{ cursor: "pointer"}} onClick={()=>navigate(`/update/${post.id}`)}>Edit</Card.Link>
+            
+            
+
+            }
             <Card.Link style={{ cursor: "pointer"}} onClick={()=>(addFav())}>Add fav</Card.Link>
             
           </Card.Body>
