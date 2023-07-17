@@ -19,13 +19,13 @@ function Post2({ post,id }) {
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Body>
-                <Card.Title>{post.title}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{post.address}</Card.Subtitle>
-                <Card.Subtitle className="mb-2 text-muted">{post.status}</Card.Subtitle>
-                <Card.Subtitle className="mb-2 text-muted">{post.user.username}</Card.Subtitle>
+                <Card.Title><b>Title:</b> {post.title}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted"><b>Address:</b> {post.address}</Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted"><b>Status:</b> {post.status}</Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted"><b>Username:</b> {post.user.username}</Card.Subtitle>
 
                 <Card.Text>
-                    {post.description}
+                    <b>Description:</b> {post.description}
                 </Card.Text>
                 <Card.Link key={post.id} onClick={() => changeStatus(post.id)}>Change status</Card.Link>
 

@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import UserComponentAdmin from "../Components/UserComponentAdmin";
 import NavbarK2 from "../Components/Navbar2";
@@ -8,7 +8,7 @@ import NavbarK2 from "../Components/Navbar2";
 
 
 function UserPage(){
-
+    const navigate=useNavigate();
     const[users, setUsers]=useState([]);
     
 
@@ -31,28 +31,42 @@ function UserPage(){
 };
 
 
-return(
+return (
     <>
-
-        <NavbarK2/>
-        <div style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(4, 1fr)", /* Creates 4 equal columns */
-                gridGap: "10px",
-                marginTop:"20px",
-                marginLeft:"20px"
-            }}>
-        {
-            users.map((user, idx)=>(
-                <UserComponentAdmin key={idx} user={user}></UserComponentAdmin>
-            ))
-        }
-        </div>
-        
-  
-        </>
-
-)
+      <NavbarK2 />
+      <div style={{ display: "flex", justifyContent: "flex-end", marginRight: "20px", marginTop: "20px" }}>
+        <button
+          style={{
+            padding: "10px 20px",
+            fontSize: "16px",
+            fontWeight: "bold",
+            backgroundColor: "#007bff",
+            color: "#fff",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+            
+          }}
+          onClick={() => navigate("/users/createUsers")}
+        >
+          Create User
+        </button>
+      </div>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gridGap: "10px",
+          marginTop: "20px",
+          marginLeft: "20px",
+        }}
+      >
+        {users.map((user, idx) => (
+          <UserComponentAdmin key={idx} user={user}></UserComponentAdmin>
+        ))}
+      </div>
+    </>
+  );
 }
 
 

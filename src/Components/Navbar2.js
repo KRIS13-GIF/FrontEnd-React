@@ -21,6 +21,7 @@ function NavbarK2(){
             <Nav className="me-auto">
                 <Nav.Link href="/">Home</Nav.Link>  
                 <Nav.Link href='/users'>Users</Nav.Link>
+                <Nav.Link href="/admin/62c40260-6792-497f-af62-f6974220ee59">Posts</Nav.Link>
             </Nav>
         </Container>
     </Navbar>

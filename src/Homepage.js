@@ -21,8 +21,10 @@ function Home() {
                 marginLeft:"20px"
                 
             }}>
+                
                 {
-                    users.filter((user) => user.deleted === false).map((user, idx) =>
+                    //.filter((user) => user.deleted === false)
+                    users.map((user, idx) =>
                         <User key={idx} user={user} />)
                 }
             </div>

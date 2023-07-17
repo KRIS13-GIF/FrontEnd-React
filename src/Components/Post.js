@@ -43,9 +43,9 @@ function Post({post}){
             <Card.Text>
               {post.description}
             </Card.Text>
-            <Card.Link onClick={()=>deletePost()}>Delete</Card.Link>
-            <Card.Link onClick={()=>navigate(`/update/${post.id}`)}>Edit</Card.Link>
-            <Card.Link onClick={()=>(addFav())}>Add fav</Card.Link>
+            <Card.Link style={{ cursor: "pointer"}} onClick={()=>deletePost()}>Delete</Card.Link>
+            <Card.Link style={{ cursor: "pointer"}} onClick={()=>navigate(`/update/${post.id}`)}>Edit</Card.Link>
+            <Card.Link style={{ cursor: "pointer"}} onClick={()=>(addFav())}>Add fav</Card.Link>
             
           </Card.Body>
         </Card>

@@ -1,14 +1,17 @@
 import Card from 'react-bootstrap/Card';
 import React from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 
 function UserComponentAdmin({user}){
+    const navigate=useNavigate();
 
     function deleteUser(){
         axios.delete(`http://localhost:5002/api/program/delete/user/${user?.id}`)
         .then((response) => {
             console.log("data: ", response.data);
+            console.log("deleted")
             window.location.reload();
         })
         .catch((error) => {
@@ -36,8 +39,8 @@ function UserComponentAdmin({user}){
             </Card.Text>
             }
             
-           <Card.Link onClick={()=>deleteUser()}>Delete</Card.Link> 
-            <Card.Link>Update</Card.Link>
+           <Card.Link style={{ cursor: "pointer"}} onClick={()=>deleteUser()}>Delete</Card.Link> 
+            <Card.Link style={{ cursor: "pointer"}} onClick={()=>navigate(`updateUsers/${user.id}`)}>Update</Card.Link>
           </Card.Body>
         </Card>
     

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Post2 from "../Components/Post2";
 
-function AdminPage() {
+function  AdminPage() {
   const [posts, setPosts] = useState([]);
   const [searchData, setSearchData] = useState({
     title: "",

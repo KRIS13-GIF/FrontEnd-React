@@ -7,6 +7,8 @@ import AppProvider from './AppProvider';
 import UpdatePost from './Pages/UpdatePageComponent';
 import AdminPage from './Pages/AdminPage';
 import UserPage from './Pages/UsersPage';
+import UpdateUserPage from './Pages/UpdateUserPage';
+import CreateUserPage from './Pages/CreateUserPage';
 
 
 
@@ -24,6 +26,8 @@ function App() {
       <Route path='/fav/:id'element={<Favorites/>}/>
       <Route path='/update/:id' element={<UpdatePost/>}/>
       <Route path='/admin/:id' element={<AdminPage/>}/>
+      <Route path='/users/updateUsers/:id' element={<UpdateUserPage/>}/>
+      <Route path='/users/createUsers' element={<CreateUserPage/>}/>
       
      
       </Routes>
