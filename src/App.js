@@ -25,6 +25,7 @@ function App() {
       <Route path="/post/:id" element={<PostPage />} />
       <Route path='/fav/:id'element={<Favorites/>}/>
       <Route path='/update/:id' element={<UpdatePost/>}/>
+
       
       <Route path='/admin/:id' element={<AdminPage/>}/>
       <Route path='/users/updateUsers/:id' element={<UpdateUserPage/>}/>
