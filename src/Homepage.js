@@ -24,7 +24,7 @@ function Home() {
                 
                 {
                     //.filter((user) => user.deleted === false)
-                    users.map((user, idx) =>
+                    users.filter((user) => user.deleted === false).map((user, idx) =>
                         <User key={idx} user={user} />)
                 }
             </div>
