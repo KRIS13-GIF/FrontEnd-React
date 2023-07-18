@@ -82,45 +82,58 @@ function AdminPage() {
         >
           ADMIN
         </h1>
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop:"20px" }}>
-          <input
-            type="text"
-            placeholder="Title"
-            value={searchData.title}
-            onChange={(e) =>
-              setSearchData({ ...searchData, title: e.target.value })
-            }
-            style={{ fontSize: '16px', padding: '8px' }}
-          />
-          <input
-            type="text"
-            placeholder="Description"
-            value={searchData.description}
-            onChange={(e) =>
-              setSearchData({ ...searchData, description: e.target.value })
-            }
-            style={{ fontSize: '16px', padding: '8px' }}
-          />
-          <select
-            value={searchData.status || ""}
-            onChange={(e) =>
-              setSearchData({
-                ...searchData,
-                status: e.target.value === "" ? null : e.target.value
-              })
-            }
-            style={{ fontSize: '16px', padding: '8px' }}
-          >
-            <option value="">Select Status</option>
-            <option value="PENDING">PENDING</option>
-            <option value="APPROVED">APPROVED</option>
-          </select>
-          <button
-            onClick={searchPosts}
-            style={{ fontSize: '16px', padding: '8px' }}
-          >
-            Search
-          </button>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: "20px" }}>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: "20px" }}>
+            <input
+              type="text"
+              placeholder="Title"
+              value={searchData.title}
+              onChange={(e) => setSearchData({ ...searchData, title: e.target.value })}
+              style={{ fontSize: '16px', padding: '8px', margin: '8px' }}
+            />
+            <input
+              type="text"
+              placeholder="Description"
+              value={searchData.description}
+              onChange={(e) => setSearchData({ ...searchData, description: e.target.value })}
+              style={{ fontSize: '16px', padding: '8px', margin: '8px' }}
+            />
+            <div style={{ marginLeft: '8px', marginRight: '8px', marginBottom: '8px', display: 'flex', alignItems: 'center' }}>
+              <select
+                value={searchData.status || ""}
+                onChange={(e) => setSearchData({ ...searchData, status: e.target.value === "" ? null : e.target.value })}
+                style={{ fontSize: '16px', padding: '8px' }}
+              >
+                <option value="">Select Status</option>
+                <option value="PENDING">PENDING</option>
+                <option value="APPROVED">APPROVED</option>
+              </select>
+            </div>
+            <button
+              onClick={searchPosts}
+              style={{
+                fontSize: '18px',
+                padding: '10px 20px',
+                margin: '8px',
+                border: '2px solid #000',
+                borderRadius: '4px',
+                fontWeight: 'bold',
+                backgroundColor: '#fff',
+                transition: 'all 0.3s',
+                cursor: 'pointer',
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = '#000';
+                e.target.style.color = '#fff';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = '#fff';
+                e.target.style.color = '#000';
+              }}
+            >
+              Search
+            </button>
+          </div>
         </div>
       </div>
       <br />
@@ -128,11 +141,13 @@ function AdminPage() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
-          gridGap: "10px"
+          gridGap: "50px",
+          marginBottom: "80px",
+          marginLeft:"50px"
         }}
       >
         {posts.map((post) => (
-          <Post2 key={post.id} id={id} post={post} />
+          <Post2 style={{}} key={post.id} id={id} post={post} />
         ))}
       </div>
     </>
