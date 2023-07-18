@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Post from "./Components/Post";
 
+
 const PostPage = () => {
     const [posts, setPosts] = useState([]);
     const [formData, setFormData] = useState({
@@ -54,34 +55,77 @@ const PostPage = () => {
 
     return (
         <>
+            <h1 style={{
 
-            <div style={{ display: "flex", justifyContent: "end", padding: "20px" }}>
+                textAlign: 'center',
+                background: 'linear-gradient(to right, #ff4b1f, #1fddff)',
+                padding: '10px',
+                fontFamily: 'Arial, sans-serif',
+                fontSize: '48px',
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                color: '#ffffff',
+                letterSpacing: '4px',
+                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)',
+            }}>POSTS</h1>
+
+            <div style={{ display: "flex", justifyContent: "end", padding: "10px" }}>
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="title">Title:</label>
-                        <input
-                            type="text"
-                            id="title"
-                            name="title"
-                            value={formData.title}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+  <div style={{ marginBottom: '10px' }}>
+    <label htmlFor="title" style={{ fontWeight: 'bold', marginRight: '10px' }}>
+      Title:
+    </label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      value={formData.title}
+      onChange={handleInputChange}
+      required
+      style={{
+        padding: '8px',
+        border: '1px solid #ccc',
+        borderRadius: '4px',
+        minWidth: '200px',
+      }}
+    />
+  </div>
 
-                    <div>
-                        <label htmlFor="description">Description:</label>
-                        <input
-                            type="text"
-                            id="description"
-                            name="description"
-                            value={formData.description}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
+  <div style={{ marginBottom: '10px' }}>
+    <label htmlFor="description" style={{ fontWeight: 'bold', marginRight: '10px' }}>
+      Description:
+    </label>
+    <input
+      type="text"
+      id="description"
+      name="description"
+      value={formData.description}
+      onChange={handleInputChange}
+      required
+      style={{
+        padding: '8px',
+        border: '1px solid #ccc',
+        borderRadius: '4px',
+        minWidth: '200px',
+      }}
+    />
+  </div>
 
-                    <button type="submit">Add post</button>
+  <button
+    type="submit"
+    style={{
+      padding: '10px',
+      backgroundColor: '#4caf50',
+      color: '#fff',
+      border: 'none',
+      borderRadius: '4px',
+      cursor: 'pointer',
+    }}
+  >
+    Add post
+  </button>
+</div>
                 </form>
             </div>
 

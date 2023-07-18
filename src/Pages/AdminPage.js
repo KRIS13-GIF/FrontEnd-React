@@ -66,8 +66,19 @@ function AdminPage() {
     <>
       <div>
         <NavbarK2 />
-        <h1>ADMIN</h1>
-        <hr />
+        <h1 style={{
+
+          textAlign: 'center',
+          background: 'linear-gradient(to right, #ff4b1f, #1fddff)',
+          padding: '10px',
+          fontFamily: 'Arial, sans-serif',
+          fontSize: '48px',
+          fontWeight: 'bold',
+          textTransform: 'uppercase',
+          color: '#ffffff',
+          letterSpacing: '4px',
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)',
+        }}>ADMIN</h1>
         <input
           type="text"
           placeholder="Title"
