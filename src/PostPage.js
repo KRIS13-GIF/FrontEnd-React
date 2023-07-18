@@ -71,61 +71,61 @@ const PostPage = () => {
 
             <div style={{ display: "flex", justifyContent: "end", padding: "10px" }}>
                 <form onSubmit={handleSubmit}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-  <div style={{ marginBottom: '10px' }}>
-    <label htmlFor="title" style={{ fontWeight: 'bold', marginRight: '10px' }}>
-      Title:
-    </label>
-    <input
-      type="text"
-      id="title"
-      name="title"
-      value={formData.title}
-      onChange={handleInputChange}
-      required
-      style={{
-        padding: '8px',
-        border: '1px solid #ccc',
-        borderRadius: '4px',
-        minWidth: '200px',
-      }}
-    />
-  </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <div style={{ marginBottom: '10px' }}>
+                            <label htmlFor="title" style={{ fontWeight: 'bold', marginRight: '10px' }}>
+                                Title:
+                            </label>
+                            <input
+                                type="text"
+                                id="title"
+                                name="title"
+                                value={formData.title}
+                                onChange={handleInputChange}
+                                required
+                                style={{
+                                    padding: '8px',
+                                    border: '1px solid #ccc',
+                                    borderRadius: '4px',
+                                    minWidth: '200px',
+                                }}
+                            />
+                        </div>
 
-  <div style={{ marginBottom: '10px' }}>
-    <label htmlFor="description" style={{ fontWeight: 'bold', marginRight: '10px' }}>
-      Description:
-    </label>
-    <input
-      type="text"
-      id="description"
-      name="description"
-      value={formData.description}
-      onChange={handleInputChange}
-      required
-      style={{
-        padding: '8px',
-        border: '1px solid #ccc',
-        borderRadius: '4px',
-        minWidth: '200px',
-      }}
-    />
-  </div>
+                        <div style={{ marginBottom: '10px' }}>
+                            <label htmlFor="description" style={{ fontWeight: 'bold', marginRight: '10px' }}>
+                                Description:
+                            </label>
+                            <input
+                                type="text"
+                                id="description"
+                                name="description"
+                                value={formData.description}
+                                onChange={handleInputChange}
+                                required
+                                style={{
+                                    padding: '8px',
+                                    border: '1px solid #ccc',
+                                    borderRadius: '4px',
+                                    minWidth: '200px',
+                                }}
+                            />
+                        </div>
 
-  <button
-    type="submit"
-    style={{
-      padding: '10px',
-      backgroundColor: '#4caf50',
-      color: '#fff',
-      border: 'none',
-      borderRadius: '4px',
-      cursor: 'pointer',
-    }}
-  >
-    Add post
-  </button>
-</div>
+                        <button
+                            type="submit"
+                            style={{
+                                padding: '10px',
+                                backgroundColor: '#4caf50',
+                                color: '#fff',
+                                border: 'none',
+                                borderRadius: '4px',
+                                cursor: 'pointer',
+                            }}
+                        >
+                            Add post
+                        </button>
+                    </div>
                 </form>
             </div>
 
