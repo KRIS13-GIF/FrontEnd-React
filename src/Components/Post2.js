@@ -1,6 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
 
 function Post2({ post,id }) {
 
@@ -17,7 +18,15 @@ function Post2({ post,id }) {
         }
 
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card style={{
+            width: '18rem',
+            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+            transition: 'box-shadow 0.3s ease',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            
+          }}>
+             <FontAwesomeIcon icon={faImage} size="3x"/>
             <Card.Body>
                 <Card.Title><b>Title:</b> {post.title}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted"><b>Address:</b> {post.address}</Card.Subtitle>

@@ -5,7 +5,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-
+import './stylingCard.css';
 
 function User({user}){
     const navigate = useNavigate();
@@ -39,25 +39,21 @@ function User({user}){
     }
     
 
-    return (<>
-      
-        <Card style={{ width: '18rem' }}>
-          <Card.Body>
-          <FontAwesomeIcon icon={faUser} size="3x" style={{ marginBottom: '10px' , alignContent:'center'}} />
-            <Card.Title>{user.username}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">{user.role}</Card.Subtitle>
-            <Card.Text>
-                {user.address}
-            </Card.Text>
-           <Card.Link style={{cursor:'pointer'}} onClick={()=>navigate(`fav/${user.id}`)}>Favorites</Card.Link> 
-            <Card.Link style={{cursor:'pointer'}} onClick={() => navigate(`post/${user.id}`)}>Posts</Card.Link>
-            <Card.Link style={{cursor:'pointer'}} onClick={()=>softDelete()}>Delete</Card.Link>
-            
-          </Card.Body>
-        </Card>
-        </>
-    
-      );
+    return (
+      <Card className="custom-card" style={{ width: '18rem' }}>
+        <Card.Body>
+          <div className="icon-container">
+            <FontAwesomeIcon icon={faUser} size="3x" />
+          </div>
+          <Card.Title>{user.username}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">{user.role}</Card.Subtitle>
+          <Card.Text>{user.address}</Card.Text>
+          <Card.Link style={{ cursor: 'pointer' }} onClick={() => navigate(`fav/${user.id}`)}>Favorites</Card.Link>
+          <Card.Link style={{ cursor: 'pointer' }} onClick={() => navigate(`post/${user.id}`)}>Posts</Card.Link>
+          <Card.Link style={{ cursor: 'pointer' }} onClick={() => softDelete()}>Delete</Card.Link>
+        </Card.Body>
+      </Card>
+    );
     }
 
 

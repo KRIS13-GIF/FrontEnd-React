@@ -4,6 +4,11 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import Swal from 'sweetalert2';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
+
+
+
 
 function Post({post}){
 
@@ -61,6 +66,7 @@ function Post({post}){
         transition: 'box-shadow 0.3s ease',
         borderRadius: '8px',
         cursor: 'pointer',
+        
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.boxShadow = '0px 4px 8px rgba(0, 0, 0, 0.3)';
@@ -69,7 +75,8 @@ function Post({post}){
         e.currentTarget.style.boxShadow = '0px 4px 8px rgba(0, 0, 0, 0.1)';
       }}
     >
-      <Card.Body>
+    <FontAwesomeIcon icon={faImage} size="3x"/>
+      <Card.Body style={{paddingTop:"10px"}}>
         <Card.Title
           style={{
             color: '#333',

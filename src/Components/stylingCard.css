@@ -23,7 +23,43 @@
     100% { transform: rotate(360deg); }
   }
 
+  .custom-card {
+    border: 2px solid gold;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s;
+  }
   
+  .custom-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .icon-container svg {
+    color: black;
+  }
+  
+  .custom-card .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .custom-card .card-subtitle {
+    font-size: 1rem;
+  }
+  
+  .custom-card .card-link {
+    color: blue;
+  }
+  
+  .custom-card .card-link:hover {
+    text-decoration: underline;
+  }
   
   
   

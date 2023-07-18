@@ -66,49 +66,62 @@ function AdminPage() {
     <>
       <div>
         <NavbarK2 />
-        <h1 style={{
-
-          textAlign: 'center',
-          background: 'linear-gradient(to right, #ff4b1f, #1fddff)',
-          padding: '10px',
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '48px',
-          fontWeight: 'bold',
-          textTransform: 'uppercase',
-          color: '#ffffff',
-          letterSpacing: '4px',
-          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)',
-        }}>ADMIN</h1>
-        <input
-          type="text"
-          placeholder="Title"
-          value={searchData.title}
-          onChange={(e) =>
-            setSearchData({ ...searchData, title: e.target.value })
-          }
-        />
-        <input
-          type="text"
-          placeholder="Description"
-          value={searchData.description}
-          onChange={(e) =>
-            setSearchData({ ...searchData, description: e.target.value })
-          }
-        />
-        <select
-          value={searchData.status || ""}
-          onChange={(e) =>
-            setSearchData({
-              ...searchData,
-              status: e.target.value === "" ? null : e.target.value
-            })
-          }
+        <h1
+          style={{
+            textAlign: 'center',
+            background: 'linear-gradient(to right, #ff4b1f, #1fddff)',
+            padding: '10px',
+            fontFamily: 'Arial, sans-serif',
+            fontSize: '48px',
+            fontWeight: 'bold',
+            textTransform: 'uppercase',
+            color: '#ffffff',
+            letterSpacing: '4px',
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)',
+          }}
         >
-          <option value="">Select Status</option>
-          <option value="PENDING">PENDING</option>
-          <option value="APPROVED">APPROVED</option>
-        </select>
-        <button onClick={searchPosts}>Search</button>
+          ADMIN
+        </h1>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop:"20px" }}>
+          <input
+            type="text"
+            placeholder="Title"
+            value={searchData.title}
+            onChange={(e) =>
+              setSearchData({ ...searchData, title: e.target.value })
+            }
+            style={{ fontSize: '16px', padding: '8px' }}
+          />
+          <input
+            type="text"
+            placeholder="Description"
+            value={searchData.description}
+            onChange={(e) =>
+              setSearchData({ ...searchData, description: e.target.value })
+            }
+            style={{ fontSize: '16px', padding: '8px' }}
+          />
+          <select
+            value={searchData.status || ""}
+            onChange={(e) =>
+              setSearchData({
+                ...searchData,
+                status: e.target.value === "" ? null : e.target.value
+              })
+            }
+            style={{ fontSize: '16px', padding: '8px' }}
+          >
+            <option value="">Select Status</option>
+            <option value="PENDING">PENDING</option>
+            <option value="APPROVED">APPROVED</option>
+          </select>
+          <button
+            onClick={searchPosts}
+            style={{ fontSize: '16px', padding: '8px' }}
+          >
+            Search
+          </button>
+        </div>
       </div>
       <br />
       <div
