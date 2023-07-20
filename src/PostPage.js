@@ -69,7 +69,7 @@ const PostPage = () => {
                 textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)',
             }}>POSTS</h1>
 
-            <div style={{ display: "flex", justifyContent: "end", padding: "10px" }}>
+            <div style={{ display: "flex", justifyContent: "start", padding: "10px" }}>
                 <form onSubmit={handleSubmit}>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <div style={{ marginBottom: '10px' }}>

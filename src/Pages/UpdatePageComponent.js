@@ -7,33 +7,38 @@ import axios from "axios";
 
 function UpdatePost() {
   const params = useParams();
-  const navigate=useNavigate();
-  const[data, setData]=useState({});
+  const navigate = useNavigate();
+  const [data, setData] = useState({});
+  const [updateTitle, setUpdateTitle] = useState( '')
+  const [updateDesc, setUpdateDesc] = useState( "")
 
+  const formData = {
 
-  const [formData, setFormData] = useState({
-    title:"",
-    description:"",
-   
-  });
+    title: updateTitle,
+    description: updateDesc,
 
+  };
+  console.log("format", formData);
+  console.log("data", data.title);
 
-  useEffect(()=>{
+  useEffect(() => {
     getData();
   }, [])
 
 
-  const getData=()=>{
-      axios.get(`http://localhost:5002/api/program/postId/${params.id}`)
+  const getData = () => {
+    axios.get(`http://localhost:5002/api/program/postId/${params.id}`)
       .then((response) => {
         console.log(response);
         setData(response.data);
-        console.log("data: ", response.data);
-    })
-    .catch((error) => {
+        setUpdateTitle(response.data.title)
+        setUpdateDesc(response.data.description)
+
+      })
+      .catch((error) => {
         console.error('Error fetching posts:', error);
-    });
-};
+      });
+  };
 
 
 
@@ -45,21 +50,14 @@ function UpdatePost() {
         console.log(response);
         console.log("data: ", response.data);
         navigate(-1);
-        
-       
+
+
       })
       .catch((error) => {
         console.error('Error updating post:', error);
       });
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value === '' ? ' ' : value,
-    }));
-  };
 
   return (
     <>
@@ -68,22 +66,22 @@ function UpdatePost() {
         <NavbarK />
       </div>
       <div style={{ marginLeft: "50px", marginRight: "50px", marginTop: "50px" }}>
-        { data.status =='PENDING' && 
-        <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Title</Form.Label>
-            <Form.Control type="text" name="title" onChange={handleInputChange} value={formData.title || data.title || ''}></Form.Control>
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
+        {data.status == 'PENDING' &&
+          <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Title</Form.Label>
+              <Form.Control type="text" name="title" onChange={(e) => { setUpdateTitle(e.target.value) }} value={updateTitle}></Form.Control>
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Description</Form.Label>
-            <Form.Control type="text" name="description" onChange={handleInputChange} value={formData.description || data.description || ''} />
-          </Form.Group>
-          <Button variant="primary" onClick={update}>
-            Submit
-          </Button>
-        </Form>}
+            <Form.Group className="mb-3">
+              <Form.Label>Description</Form.Label>
+              <Form.Control type="text" name="description" onChange={(e) => { setUpdateDesc(e.target.value) }} value={updateDesc} />
+            </Form.Group>
+            <Button variant="primary" onClick={update}>
+              Submit
+            </Button>
+          </Form>}
       </div>
     </>
   );
