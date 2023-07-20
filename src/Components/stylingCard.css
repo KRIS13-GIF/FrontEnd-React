@@ -60,3 +60,24 @@
   .custom-card .card-link:hover {
     text-decoration: underline;
   }
+
+  /* Custom styles for the 'favorites-link' class */
+.link,
+.link:visited {
+  background-color: white;
+  color: green;
+  border: 2px solid green;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display:inline;
+}
+
+.link:hover,
+.link:active {
+  background-color: green;
+  color: white;
+}
+
+
+

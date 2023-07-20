@@ -72,7 +72,7 @@ function UserPage() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
-          gridGap: "10px",
+          gridGap: "20px",
           marginTop: "20px",
           marginLeft: "20px",
         }}

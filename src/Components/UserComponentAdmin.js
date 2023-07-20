@@ -66,10 +66,16 @@ function UserComponentAdmin({ user }) {
             </Card.Text>
           )}
         </div>
-        <Card.Link style={{ cursor: "pointer" }} onClick={() => deleteUser()}>
+        <br></br>
+        <Card.Link
+          className="link"
+          style={{ cursor: "pointer" }}
+          onClick={() => deleteUser()}
+        >
           Delete
         </Card.Link>
         <Card.Link
+          className="link"
           style={{ cursor: "pointer" }}
           onClick={() => navigate(`updateUsers/${user.id}`)}
         >

@@ -22,24 +22,39 @@ function CreateUserPage() {
   };
 
   function createUser() {
-    axios
-      .post(`http://localhost:5002/api/program/create/user`, formData)
-      .then((response) => {
-        console.log(response);
-        Swal.fire("User added!");
-
-        navigate("/users");
-      })
-      .catch((error) => {
-        Swal.fire({
-          title: "<strong>Not Allowed! <u>User problem</u></strong>",
-          icon: "info",
-          showCloseButton: true,
-          showCancelButton: true,
-          focusConfirm: false,
-        });
-        console.error("Error creating user:", error);
+    if (
+      !formData.username ||
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.password ||
+      !formData.email ||
+      !formData.address
+    ) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill all fields!",
       });
+    } else {
+      axios
+        .post(`http://localhost:5002/api/program/create/user`, formData)
+        .then((response) => {
+          console.log(response);
+          Swal.fire("User added!");
+
+          navigate("/users");
+        })
+        .catch((error) => {
+          Swal.fire({
+            title: "<strong>Not Allowed! <u>User problem</u></strong>",
+            icon: "info",
+            showCloseButton: true,
+            showCancelButton: true,
+            focusConfirm: false,
+          });
+          console.error("Error creating user:", error);
+        });
+    }
   }
 
   function refresh() {
@@ -146,7 +161,7 @@ function CreateUserPage() {
                 fontSize: "20px",
                 padding: "15px 30px",
                 backgroundColor: "#28a745",
-                color: "black",
+                color: "white",
                 border: "none",
                 borderRadius: "8px",
                 cursor: "pointer",

@@ -47,18 +47,24 @@ function User({ user }) {
         <Card.Text>{user.address}</Card.Text>
 
         <Card.Link
+          className="link"
           style={{ cursor: "pointer" }}
           onClick={() => navigate(`fav/${user.id}`)}
         >
           Favorites
         </Card.Link>
         <Card.Link
+          className="link"
           style={{ cursor: "pointer" }}
           onClick={() => navigate(`post/${user.id}`)}
         >
           Posts
         </Card.Link>
-        <Card.Link style={{ cursor: "pointer" }} onClick={() => softDelete()}>
+        <Card.Link
+          className="link"
+          style={{ cursor: "pointer" }}
+          onClick={() => softDelete()}
+        >
           Disable
         </Card.Link>
       </Card.Body>
