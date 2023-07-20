@@ -190,16 +190,38 @@ function AdminPage() {
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <button
+          style={{
+            marginRight: "10px",
+            fontSize: "18px",
+            padding: "12px 20px",
+            border: "none",
+            borderRadius: "8px",
+            fontWeight: "bold",
+            color: "#fff",
+            backgroundColor: "#007bff",
+            cursor: "pointer",
+            transition: "background-color 0.3s ease",
+          }}
           disabled={currentPage === 0}
           onClick={() => handlePagination(currentPage - 1)}
-          style={{ marginRight: "10px" }}
         >
           Previous
         </button>
         <button
           onClick={() => handlePagination(currentPage + 1)}
           disabled={posts.length < pageSize}
-          style={{ marginLeft: "10px" }}
+          style={{
+            marginLeft: "10px",
+            fontSize: "18px",
+            padding: "12px 20px",
+            border: "none",
+            borderRadius: "8px",
+            fontWeight: "bold",
+            color: "#fff",
+            backgroundColor: "#007bff",
+            cursor: "pointer",
+            transition: "background-color 0.3s ease",
+          }}
         >
           Next
         </button>

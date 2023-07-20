@@ -59,7 +59,7 @@ function User({ user }) {
           Posts
         </Card.Link>
         <Card.Link style={{ cursor: "pointer" }} onClick={() => softDelete()}>
-          Delete
+          Disable
         </Card.Link>
       </Card.Body>
     </Card>
