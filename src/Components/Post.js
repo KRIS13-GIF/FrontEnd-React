@@ -1,16 +1,58 @@
+import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
-import React from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import "../Components/stylingCard.css";
+import { useNavigate } from "react-router-dom";
 
 function Post({ post }) {
+  const [img, setImg] = useState(null);
   const navigate = useNavigate();
-  const params = useParams();
+  useEffect(() => {
+    fetchImage(post.id);
+  }, [post.id]);
+
+  const fetchImage = async (id) => {
+    try {
+      const imageUrl = `http://localhost:5002/api/program/${id}`;
+      const res = await fetch(imageUrl);
+
+      if (res.ok) {
+        const imageBlob = await res.blob();
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+        setImg(imageObjectURL);
+      } else {
+        setImg(null);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+
+      setImg(null);
+    }
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) {
+      return;
+    }
+    const formData = new FormData();
+    formData.append("image", file);
+
+    axios
+      .post(`http://localhost:5002/api/program/upload/${post.id}`, formData)
+      .then((res) => {
+        console.log("Image uploaded successfully.");
+
+        fetchImage(post.id);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error uploading image:", error);
+      });
+  };
 
   function deletePost() {
     Swal.fire({
@@ -45,6 +87,11 @@ function Post({ post }) {
         alert("Post added to favorite !");
       })
       .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "You can not put two times the same favourite !",
+        });
         console.error("Error fetching posts:", error);
       });
   }
@@ -53,7 +100,8 @@ function Post({ post }) {
     <>
       <Card
         style={{
-          width: "18rem",
+          width: "30 rem",
+          height: "auto",
           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
           transition: "box-shadow 0.3s ease",
           borderRadius: "8px",
@@ -66,7 +114,15 @@ function Post({ post }) {
           e.currentTarget.style.boxShadow = "0px 4px 8px rgba(0, 0, 0, 0.1)";
         }}
       >
-        <FontAwesomeIcon icon={faImage} size="3x" />
+        {img ? (
+          <img
+            src={img}
+            alt="Post Image"
+            style={{ width: "100%", maxHeight: "200px", objectFit: "cover" }}
+          />
+        ) : (
+          <FontAwesomeIcon icon={faImage} size="3x" />
+        )}
         <Card.Body style={{ paddingTop: "10px" }}>
           <Card.Title
             style={{
@@ -93,19 +149,8 @@ function Post({ post }) {
           >
             {post.description}
           </Card.Text>
-          <Card.Link
-            className="link"
-            style={{
-              cursor: "pointer",
 
-              marginRight: "10px",
-              fontSize: "16px",
-            }}
-            onClick={() => deletePost()}
-          >
-            Delete
-          </Card.Link>
-          {post.status !== "APPROVED" && (
+          <div style={{ display: "flex", alignItems: "center" }}>
             <Card.Link
               className="link"
               style={{
@@ -113,23 +158,37 @@ function Post({ post }) {
                 marginRight: "10px",
                 fontSize: "16px",
               }}
-              onClick={() => navigate(`/update/${post.id}`)}
+              onClick={() => deletePost()}
             >
-              Edit
+              Delete
             </Card.Link>
-          )}
-          <Card.Link
-            className="link"
-            style={{
-              cursor: "pointer",
-
-              marginRight: "10px",
-              fontSize: "16px",
-            }}
-            onClick={() => addFav()}
-          >
-            Add fav
-          </Card.Link>
+            {post.status !== "APPROVED" && (
+              <Card.Link
+                className="link"
+                style={{
+                  cursor: "pointer",
+                  marginRight: "10px",
+                  fontSize: "16px",
+                }}
+                onClick={() => navigate(`/update/${post.id}`)}
+              >
+                Edit
+              </Card.Link>
+            )}
+            <input type="file" accept="image/*" onChange={handleImageChange} />
+            <Card.Link
+              className="link"
+              style={{
+                cursor: "pointer",
+                marginRight: "10px",
+                fontSize: "16px",
+                marginTop: "10px",
+              }}
+              onClick={() => addFav()}
+            >
+              Add fav
+            </Card.Link>
+          </div>
         </Card.Body>
       </Card>
     </>

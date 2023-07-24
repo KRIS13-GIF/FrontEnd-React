@@ -19,13 +19,13 @@ function User({ user }) {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
         axios
           .put(`http://localhost:5002/api/program/softDelete/${user.id}`)
           .then((response) => {
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            Swal.fire("Disabled!", "This user has been disabled.", "success");
             console.log(response);
             window.location.reload();
           })

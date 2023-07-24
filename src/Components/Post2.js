@@ -1,9 +1,35 @@
+import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
+
 function Post2({ post, id }) {
+  const [img, setImg] = useState(null);
+
+  useEffect(() => {
+    fetchImage(post.id);
+  }, [post.id]);
+
+  const fetchImage = async (id) => {
+    try {
+      const imageUrl = `http://localhost:5002/api/program/${id}`;
+      const res = await fetch(imageUrl);
+
+      if (res.ok) {
+        const imageBlob = await res.blob();
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+        setImg(imageObjectURL);
+      } else {
+        setImg(null);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setImg(null);
+    }
+  };
+
   function changeStatus(idToSend) {
     axios
       .put(`http://localhost:5002/api/program/changeStatus/${id}/${idToSend}`)
@@ -27,7 +53,15 @@ function Post2({ post, id }) {
         cursor: "pointer",
       }}
     >
-      <FontAwesomeIcon icon={faImage} size="3x" />
+      {img ? (
+        <img
+          src={img}
+          alt="Post Image"
+          style={{ width: "100%", height: "150px", objectFit: "cover" }}
+        />
+      ) : (
+        <FontAwesomeIcon icon={faImage} size="3x" />
+      )}
       <Card.Body>
         <Card.Title>
           <b>Title:</b> {post.title}

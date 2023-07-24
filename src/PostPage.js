@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Post from "./Components/Post";
+import Swal from "sweetalert2";
 
 const PostPage = () => {
   const [posts, setPosts] = useState([]);
@@ -68,6 +69,11 @@ const PostPage = () => {
       setFormData({ title: "", description: "" });
       getPosts();
     } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+      });
       console.error(error);
     }
   };
@@ -250,7 +256,7 @@ const PostPage = () => {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)" /* Creates 4 equal columns */,
-          gridGap: "10px",
+          gridGap: "20px" /* Increase the gap between posts */,
           marginTop: "20px",
           marginLeft: "20px",
         }}
