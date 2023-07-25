@@ -12,10 +12,12 @@ function UpdatePost() {
   const [data, setData] = useState({});
   const [updateTitle, setUpdateTitle] = useState("");
   const [updateDesc, setUpdateDesc] = useState("");
+  const [updateAddress, setAddress] = useState("");
 
   const formData = {
     title: updateTitle,
     description: updateDesc,
+    address: updateAddress,
   };
   console.log("format", formData);
   console.log("data", data.title);
@@ -32,6 +34,7 @@ function UpdatePost() {
         setData(response.data);
         setUpdateTitle(response.data.title);
         setUpdateDesc(response.data.description);
+        setAddress(response.data.address);
       })
       .catch((error) => {
         console.error("Error fetching posts:", error);
@@ -90,13 +93,28 @@ function UpdatePost() {
                 <Form.Label>Description</Form.Label>
                 <Form.Control
                   as="textarea"
-                  style={{ width: "800px", height: "150px" }} // Adjust height as needed
+                  style={{ width: "800px", height: "150px" }}
                   name="description"
                   placeholder="Description"
                   onChange={(e) => {
                     setUpdateDesc(e.target.value);
                   }}
                   value={updateDesc}
+                />
+              </Form.Group>
+            </div>
+
+            <div class="product-description-form">
+              <Form.Group className="mb-3">
+                <Form.Label>Address</Form.Label>
+                <Form.Control
+                  style={{ width: "800px", height: "50px" }}
+                  name="address"
+                  placeholder="Address"
+                  onChange={(e) => {
+                    setAddress(e.target.value);
+                  }}
+                  value={updateAddress}
                 />
               </Form.Group>
             </div>

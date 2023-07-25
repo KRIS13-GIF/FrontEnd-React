@@ -96,16 +96,25 @@ function Post({ post }) {
       });
   }
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString(); // Customize the date format as needed
+  };
+
+  const formatTime = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleTimeString(); // Customize the time format as needed
+  };
+
   return (
     <>
       <Card
         style={{
           width: "30 rem",
-          height: "auto",
+          height: "50 rem",
           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
           transition: "box-shadow 0.3s ease",
           borderRadius: "8px",
-          cursor: "pointer",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.boxShadow = "0px 4px 8px rgba(0, 0, 0, 0.3)";
@@ -132,22 +141,29 @@ function Post({ post }) {
               marginBottom: "10px",
             }}
           >
-            {post.title}
+            Title: {post.title}
           </Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
-            {post.address}
+            <u>Address:</u> {post.address}
           </Card.Subtitle>
           <Card.Subtitle className="mb-2 text-muted">
-            {post.status}
+            <u>Status</u> {post.status}
           </Card.Subtitle>
           <Card.Subtitle className="mb-2 text-muted">
-            {post.user.username}
+            <u>Username</u> {post.user.username}
           </Card.Subtitle>
 
           <Card.Text
             style={{ color: "#666", fontSize: "18px", marginBottom: "20px" }}
           >
-            {post.description}
+            <u>Description</u> {post.description}
+          </Card.Text>
+
+          <Card.Text
+            style={{ color: "#666", fontSize: "18px", marginBottom: "20px" }}
+          >
+            Created at: {formatDate(post.createdAt)}{" "}
+            {formatTime(post.createdAt)}
           </Card.Text>
 
           <div style={{ display: "flex", alignItems: "center" }}>
