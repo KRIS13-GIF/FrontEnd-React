@@ -9,7 +9,6 @@ import AdminPage from "./Pages/AdminPage";
 import UserPage from "./Pages/UsersPage";
 import UpdateUserPage from "./Pages/UpdateUserPage";
 import CreateUserPage from "./Pages/CreateUserPage";
-import AddPostPage from "./Pages/AddPostPage";
 
 function App() {
   return (

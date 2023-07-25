@@ -121,6 +121,7 @@ const PostPage = () => {
           />
           <input
             type="text"
+            as="textarea"
             placeholder="Description"
             value={searchData.description}
             onChange={(e) =>

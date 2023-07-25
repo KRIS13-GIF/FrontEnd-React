@@ -88,7 +88,7 @@ function UpdatePost() {
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
 
-            <div class="product-description-form">
+            <div className="product-description-form">
               <Form.Group className="mb-3">
                 <Form.Label>Description</Form.Label>
                 <Form.Control

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 
@@ -48,14 +49,32 @@ function Post2({ post, id }) {
       });
   }
 
+  const handleDelete = () => {
+    axios
+      .delete(`http://localhost:5002/api/program/deleteHardPost/${post.id}`)
+      .then((response) => {
+        console.log("Post deleted successfully:", response);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error deleting post:", error);
+      });
+  };
+
   return (
     <Card
       style={{
-        width: "18rem",
+        width: "20rem",
         boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
         transition: "box-shadow 0.3s ease",
         borderRadius: "8px",
         cursor: "pointer",
+        border: "4px solid red",
+        borderRadius: "10px",
+        padding: "10px",
+        fontWeight: "bold",
+        color: "black",
+        fontSize: "16px",
       }}
     >
       {img ? (
@@ -84,7 +103,16 @@ function Post2({ post, id }) {
         <Card.Text>
           <b>Description:</b> {post.description}
         </Card.Text>
-        {post.status != "APPROVED" && (
+
+        {post.deleted == 1 && (
+          <h4>
+            {""}
+            Deleted{"  "}
+            <FontAwesomeIcon icon={faTrashAlt} />
+          </h4>
+        )}
+
+        {post.status != "APPROVED" && post.deleted == 0 && (
           <button
             style={{
               fontSize: "18px",
@@ -110,6 +138,33 @@ function Post2({ post, id }) {
             Change status
           </button>
         )}
+
+        <button
+          onClick={handleDelete}
+          style={{
+            width: "70px",
+            height: "60px",
+            borderRadius: "50%",
+            fontWeight: "bold",
+            backgroundColor: "#fff",
+            transition: "background-color 0.3s",
+            cursor: "pointer",
+            position: "relative",
+            overflow: "hidden",
+            borderWidth: "4px",
+            borderColor: "red",
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.backgroundColor = "red";
+            e.target.style.color = "#fff";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.backgroundColor = "#fff";
+            e.target.style.color = "#000";
+          }}
+        >
+          Delete
+        </button>
       </Card.Body>
     </Card>
   );

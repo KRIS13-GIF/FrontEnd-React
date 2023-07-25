@@ -39,7 +39,19 @@ function User({ user }) {
   return (
     <Card
       className="custom-card"
-      style={{ width: "18rem", paddingTop: "10px", marginTop: "20px" }}
+      style={{
+        width: "25rem",
+        boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+        transition: "box-shadow 0.3s ease",
+        borderRadius: "8px",
+        cursor: "pointer",
+        border: "4px solid red",
+        borderRadius: "10px",
+        padding: "10px",
+        fontWeight: "bold",
+        color: "black",
+        fontSize: "16px",
+      }}
     >
       <Card.Body>
         <div className="icon-container">

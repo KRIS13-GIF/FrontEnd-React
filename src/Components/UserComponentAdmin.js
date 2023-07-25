@@ -35,7 +35,23 @@ function UserComponentAdmin({ user }) {
   }
 
   return (
-    <Card className="shining-card" style={{ width: "18rem" }}>
+    <Card
+      className="shining-card"
+      style={{
+        width: "18rem",
+        marginLeft: "130px",
+        boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+        transition: "box-shadow 0.3s ease",
+        borderRadius: "8px",
+        cursor: "pointer",
+        border: "4px solid red",
+        borderRadius: "10px",
+        padding: "10px",
+        fontWeight: "bold",
+        color: "black",
+        fontSize: "16px",
+      }}
+    >
       <FontAwesomeIcon
         icon={faUser}
         size="3x"

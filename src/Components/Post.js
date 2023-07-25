@@ -98,23 +98,29 @@ function Post({ post }) {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString(); // Customize the date format as needed
+    return date.toLocaleDateString();
   };
 
   const formatTime = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleTimeString(); // Customize the time format as needed
+    return date.toLocaleTimeString();
   };
 
   return (
     <>
       <Card
         style={{
-          width: "30 rem",
-          height: "50 rem",
+          width: "25rem",
           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
           transition: "box-shadow 0.3s ease",
           borderRadius: "8px",
+          cursor: "pointer",
+          border: "4px solid red",
+          borderRadius: "10px",
+          padding: "10px",
+          fontWeight: "bold",
+          color: "black",
+          fontSize: "16px",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.boxShadow = "0px 4px 8px rgba(0, 0, 0, 0.3)";
@@ -130,7 +136,7 @@ function Post({ post }) {
             style={{ width: "100%", maxHeight: "200px", objectFit: "cover" }}
           />
         ) : (
-          <FontAwesomeIcon icon={faImage} size="3x" />
+          <FontAwesomeIcon icon={faImage} size="5x" />
         )}
         <Card.Body style={{ paddingTop: "10px" }}>
           <Card.Title

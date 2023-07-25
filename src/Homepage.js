@@ -28,14 +28,12 @@ function Home() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)" /* Creates 4 equal columns */,
-          gridGap: "10px",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gridGap: "20px",
           marginTop: "20px",
           marginLeft: "20px",
         }}
       >
-        <br></br>
-
         {users
           .filter((user) => user.deleted === false)
           .map((user, idx) => (
