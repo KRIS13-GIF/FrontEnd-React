@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import NavbarK from "../Components/Navbar";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function UpdatePost() {
   const params = useParams();
@@ -50,6 +51,11 @@ function UpdatePost() {
         navigate(-1);
       })
       .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Fill the fields on the form!",
+        });
         console.error("Error updating post:", error);
       });
   };
@@ -67,8 +73,10 @@ function UpdatePost() {
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Title</Form.Label>
               <Form.Control
+                style={{ width: "800px", height: "50px" }}
                 type="text"
                 name="title"
+                placeholder="Title"
                 onChange={(e) => {
                   setUpdateTitle(e.target.value);
                 }}
@@ -77,17 +85,21 @@ function UpdatePost() {
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Description</Form.Label>
-              <Form.Control
-                type="text"
-                name="description"
-                onChange={(e) => {
-                  setUpdateDesc(e.target.value);
-                }}
-                value={updateDesc}
-              />
-            </Form.Group>
+            <div class="product-description-form">
+              <Form.Group className="mb-3">
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  style={{ width: "800px", height: "150px" }} // Adjust height as needed
+                  name="description"
+                  placeholder="Description"
+                  onChange={(e) => {
+                    setUpdateDesc(e.target.value);
+                  }}
+                  value={updateDesc}
+                />
+              </Form.Group>
+            </div>
             <Button variant="primary" onClick={update}>
               Submit
             </Button>

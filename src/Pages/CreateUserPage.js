@@ -73,7 +73,9 @@ function CreateUserPage() {
           <Form.Group className="mb-3">
             <Form.Label>Username</Form.Label>
             <Form.Control
+              style={{ width: "800px", height: "50px" }}
               type="text"
+              placeholder="Username"
               name="username"
               onChange={handleInputChange}
               value={formData.username}
@@ -84,6 +86,8 @@ function CreateUserPage() {
           <Form.Group className="mb-3">
             <Form.Label>Name</Form.Label>
             <Form.Control
+              style={{ width: "800px", height: "50px" }}
+              placeholder="Firstname"
               type="name"
               name="firstName"
               onChange={handleInputChange}
@@ -94,7 +98,9 @@ function CreateUserPage() {
           <Form.Group className="mb-3">
             <Form.Label>Lastname</Form.Label>
             <Form.Control
+              style={{ width: "800px", height: "50px" }}
               type="lastname"
+              placeholder="Lastname"
               name="lastName"
               onChange={handleInputChange}
               value={formData.lastName}
@@ -104,6 +110,8 @@ function CreateUserPage() {
           <Form.Group className="mb-3">
             <Form.Label>Password</Form.Label>
             <Form.Control
+              style={{ width: "800px", height: "50px" }}
+              placeholder="Password"
               type="password"
               name="password"
               onChange={handleInputChange}
@@ -114,6 +122,8 @@ function CreateUserPage() {
           <Form.Group className="mb-3">
             <Form.Label>Email</Form.Label>
             <Form.Control
+              style={{ width: "800px", height: "50px" }}
+              placeholder="Email"
               type="text"
               name="email"
               onChange={handleInputChange}
@@ -124,6 +134,8 @@ function CreateUserPage() {
           <Form.Group className="mb-3">
             <Form.Label>Address</Form.Label>
             <Form.Control
+              style={{ width: "800px", height: "50px" }}
+              placeholder="Address"
               type="text"
               name="address"
               onChange={handleInputChange}

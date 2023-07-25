@@ -64,8 +64,8 @@
 .link,
 .link:visited {
   background-color: white;
-  color: green;
-  border: 2px solid green;
+  color: black;
+  border: 2px solid red;
   padding: 5px 8px;
   text-align: center;
   text-decoration: none;
@@ -74,9 +74,10 @@
 
 .link:hover,
 .link:active {
-  background-color: green;
+  background-color: red;
   color: white;
 }
+
 
 
 

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Post2 from "../Components/Post2";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function AdminPage() {
   const navigate = useNavigate();

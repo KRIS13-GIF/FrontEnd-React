@@ -37,14 +37,20 @@ function User({ user }) {
   }
 
   return (
-    <Card className="custom-card" style={{ width: "18rem" }}>
+    <Card
+      className="custom-card"
+      style={{ width: "18rem", paddingTop: "10px", marginTop: "20px" }}
+    >
       <Card.Body>
         <div className="icon-container">
           <FontAwesomeIcon icon={faUser} size="3x" />
         </div>
         <Card.Title>{user.username}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">{user.role}</Card.Subtitle>
-        <Card.Text>{user.address}</Card.Text>
+        <Card.Text>
+          <b>Address: </b>
+          {user.address}
+        </Card.Text>
 
         <Card.Link
           className="link"

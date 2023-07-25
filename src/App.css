@@ -1,3 +1,9 @@
+body {
+  background-image: url("C:\\Users\\TR3BIT\\Desktop\\background.jpg");
+  background-size: cover; /* To make the image cover the entire background */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
 .App {
   text-align: center;
 }

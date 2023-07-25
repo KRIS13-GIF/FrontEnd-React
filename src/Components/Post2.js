@@ -39,6 +39,11 @@ function Post2({ post, id }) {
         window.location.reload();
       })
       .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Status is already changed!",
+        });
         console.error("Error fetching posts:", error);
       });
   }
@@ -79,30 +84,32 @@ function Post2({ post, id }) {
         <Card.Text>
           <b>Description:</b> {post.description}
         </Card.Text>
-        <button
-          style={{
-            fontSize: "18px",
-            padding: "10px 20px",
-            margin: "8px",
-            border: "2px solid #000",
-            borderRadius: "4px",
-            fontWeight: "bold",
-            backgroundColor: "#fff",
-            transition: "all 0.3s",
-            cursor: "pointer",
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.backgroundColor = "#000";
-            e.target.style.color = "#fff";
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.backgroundColor = "#fff";
-            e.target.style.color = "#000";
-          }}
-          onClick={() => changeStatus(post.id)}
-        >
-          Change status
-        </button>
+        {post.status != "APPROVED" && (
+          <button
+            style={{
+              fontSize: "18px",
+              padding: "10px 20px",
+              margin: "8px",
+              border: "2px solid #000",
+              borderRadius: "4px",
+              fontWeight: "bold",
+              backgroundColor: "#fff",
+              transition: "all 0.3s",
+              cursor: "pointer",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = "#000";
+              e.target.style.color = "#fff";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = "#fff";
+              e.target.style.color = "#000";
+            }}
+            onClick={() => changeStatus(post.id)}
+          >
+            Change status
+          </button>
+        )}
       </Card.Body>
     </Card>
   );

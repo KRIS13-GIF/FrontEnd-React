@@ -192,7 +192,11 @@ const PostPage = () => {
             <div style={{ marginBottom: "10px" }}>
               <label
                 htmlFor="title"
-                style={{ fontWeight: "bold", marginRight: "10px" }}
+                style={{
+                  fontWeight: "bold",
+                  marginRight: "10px",
+                  color: "white",
+                }}
               >
                 Title:
               </label>
@@ -215,7 +219,11 @@ const PostPage = () => {
             <div style={{ marginBottom: "10px" }}>
               <label
                 htmlFor="description"
-                style={{ fontWeight: "bold", marginRight: "10px" }}
+                style={{
+                  fontWeight: "bold",
+                  marginRight: "10px",
+                  color: "white",
+                }}
               >
                 Description:
               </label>
